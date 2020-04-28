@@ -1,0 +1,69 @@
+.consult-list-item-area {
+    width: 1300px;
+    height: 75px;
+    background: #FFFFFF;
+}
+
+.consult-list-item-area-grey {
+    width: 1300px;
+    height: 75px;
+    background: #F9F9F9;
+}
+
+.consult-list-item-text {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+
+    position: relative;
+    top: 25px;
+
+    color: #000000;
+}
+
+.consult-list-item-status {
+    height: 10px;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+
+    position: relative;
+    top: 20px;
+
+    color: #000000;
+}
+
+.consult-list-item-line {
+    position: relative;
+    width: 1300px;
+    height: 0px;
+    top: 50px;
+    left: -15px;
+
+    border: 1px solid rgba(183, 183, 183, 0.5);
+}
+
+.color-green {
+    color: #0ACF83;
+}
+
+.color-orange {
+    color: #F7941E;
+}
+
+.color-red {
+    color: #FF0742;
+}
+
+.action-area {
+    position: relative;
+    left: -310px;
+    width: 1100px;
+    height: 570px;
+
+    background: #FFFFFF;
+    border-radius: 5px;
+}

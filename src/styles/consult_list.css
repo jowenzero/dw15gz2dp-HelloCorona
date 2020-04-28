@@ -1,0 +1,36 @@
+.consult-list-bg {
+    background: #F9F9F9;
+    min-height: 740px;
+}
+
+.consult-list-area {
+    position: relative;
+    left: 0px;
+    top: 80px;
+}
+
+.consult-list-title {
+    font-family: Montserrat;
+    font-size: 36px;
+
+    position: relative;
+    left: 150px;
+    top: 59px;
+
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+}
+
+.consult-list-text {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+
+    position: relative;
+    top: 25px;
+
+    color: #000000;
+}
