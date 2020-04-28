@@ -45,7 +45,7 @@ const HeaderLogin = ({role}) => {
                         <Dropdown.Menu>
                             <Dropdown.Item as={Link} to="/profile"><AiOutlineUser className="home-icons"/>Profile</Dropdown.Item>
                             { role === "Patient" &&
-                                <Dropdown.Item as={Link} to="/404"><AiFillMail className="home-icons"/>Consultation</Dropdown.Item>
+                                <Dropdown.Item as={Link} to="/consultation"><AiFillMail className="home-icons"/>Consultation</Dropdown.Item>
                             }
                             { role === "Doctor" &&
                                 <Dropdown.Item as={Link} to="/404"><RiArticleLine className="home-icons"/>Add Article</Dropdown.Item>

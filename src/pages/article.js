@@ -9,7 +9,7 @@ import '../styles/article.css';
 
 import Login from '../components/login';
 
-const Property = (props) => {
+const Article = (props) => {
     const users = useSelector(state => state.user.multiData);
     const articles = useSelector(state => state.article.singleData);
     const loading = useSelector(state => state.article.loading);
@@ -76,4 +76,4 @@ const Property = (props) => {
     )
 }
 
-export default Property;
+export default Article;

@@ -7,7 +7,7 @@ import '../styles/reservation.css';
 
 import Login from '../components/login';
 
-const AddProperty = () => {
+const Reservation = () => {
     const [reserve, setReserve] = React.useState({});
     const [reserveFail, setReserveFail] = React.useState(false);
     const [reverseOK, setReserveOK] = React.useState(false);
@@ -195,4 +195,4 @@ const AddProperty = () => {
     )
 }
 
-export default AddProperty;
+export default Reservation;

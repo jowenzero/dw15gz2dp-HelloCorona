@@ -50,7 +50,7 @@ const Profile = () => {
                                 <p className="profile-desc">Address</p>
                             </Col>
                             <Col xs={4}>
-                                <img src={ process.env.PUBLIC_URL + "../images/Profile.png" } alt=""></img>
+                                <img src={ process.env.PUBLIC_URL + `../images/Profile${listAs}.png` } alt=""></img>
                                 <br/><br/>
                                 <DropdownButton variant="danger" id="dropdown-basic-button" title="Change Photo Profile">
                                     <form action="/profile" method="post" enctype="multipart/form-data">
