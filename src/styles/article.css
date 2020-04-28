@@ -1,0 +1,75 @@
+.article-area {
+    position: relative;
+    width: 932px;
+    height: 57px;
+    left: 180px;
+    top: 0px;
+}
+
+.article-name {
+    width: 932px;
+    height: 57px;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 44px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+}
+
+.article-light {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #6C6C6C;
+
+}
+
+.article-box {
+    width: 1089px;
+    min-height: 1720px;
+
+    /* White */
+
+    background: #FFFFFF;
+    /* Shadow Card */
+
+    box-shadow: 0px 0px 4px rgba(5, 5, 5, 0.08);
+    border-radius: 8px;
+}
+
+.article-pic {
+    position: relative;
+    left: 80px;
+    top: 63px;
+}
+
+.article-desc-text {
+    position: relative;
+    width: 898px;
+    height: 132px;
+    left: 80px;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 33px;
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+}

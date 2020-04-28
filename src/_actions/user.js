@@ -17,13 +17,19 @@ export const getUser = () => {
   };
 };
 
-export const getUsers = () => {
+export const getUsers = (id) => {
   return {
     type: GET_USERS,
     async payload() {
       try {
-        const users = await API.get("/users");
-        return users.data;
+        if (id) {
+          const users = await API.get(`/user/${id}`);
+          return users.data;
+        }
+        else {
+          const users = await API.get("/users");
+          return users.data;
+        }
       } catch (error) {
         console.log(error);
       }

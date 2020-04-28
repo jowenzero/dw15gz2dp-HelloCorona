@@ -1,7 +1,8 @@
-import { GET_ARTICLES } from "../constants/action-types";
+import { GET_ARTICLES, GET_DETAIL_ARTICLE } from "../constants/action-types";
 
 const initialState = {
   data: [],
+  singleData: [],
   loading: true,
   error: false,
 };
@@ -9,6 +10,7 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case `${GET_ARTICLES}_PENDING`:
+    case `${GET_DETAIL_ARTICLE}_PENDING`:
       return {
         ...state,
         loading: true,
@@ -27,7 +29,22 @@ const reducer = (state = initialState, action) => {
           loading: false,
         };
       }
+    case `${GET_DETAIL_ARTICLE}_FULFILLED`:
+      if (action.payload) {
+        return {
+          ...state,
+          singleData: action.payload.data,
+          loading: false,
+        };
+      }
+      else {
+        return {
+          ...state,
+          loading: false,
+        };
+      }
     case `${GET_ARTICLES}_REJECTED`:
+    case `${GET_DETAIL_ARTICLE}_REJECTED`:
       return {
         ...state,
         loading: false,

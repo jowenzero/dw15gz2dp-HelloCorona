@@ -8,12 +8,14 @@ import './styles/App.css';
 
 import Home from './pages/home';
 import Profile from './pages/profile';
+import Article from './pages/article';
 import NotFound from './pages/not_found';
 
 const App = () => (
   <Router>
     <Switch>  
       <PrivateRoute path="/profile" exact component={Profile}/>
+      <Route path="/article/:id" exact component={Article}/>
       <Route path="/" exact component={Home}/>
       <Route component={NotFound}/>
     </Switch>
