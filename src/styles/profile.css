@@ -1,0 +1,63 @@
+.profile-bg {
+    background: #F9F9F9;
+}
+
+.profile-area {
+    width: 785px;
+    min-height: 566px;
+    left: 327px;
+    top: 188px;
+
+    /* White */
+    background: #FFFFFF;
+    /* Shadow Card */
+
+    box-shadow: 0px 0px 4px rgba(5, 5, 5, 0.08);
+    border-radius: 8px;
+}
+
+.profile-info {
+    position: relative;
+    top: -5px;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+
+    color: #050505;
+}
+
+.profile-icons {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    margin-bottom: 34px;
+    margin-left: 10px;
+}
+
+.profile-desc {
+    position: relative;
+    top: -15px;
+
+    width: 100px;
+    height: 16px;
+
+    font-family: Montserrat;
+    font-size: 12px;
+
+    color: #8A8C90;
+}
+
+.profile-name {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 14px;
+
+    color: #050505;
+}
+
+.profile-link {
+    color: #0083E2;
+}

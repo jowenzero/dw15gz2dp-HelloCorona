@@ -1,0 +1,38 @@
+/*=======================================
+            HEADER COMPONENTS
+========================================*/
+.navbar {
+    min-height: 120px;
+}
+
+.padding {
+    padding-top: 120px;
+}
+
+.home-sign-in {
+    position: relative;
+    left: -15px;
+    color: #FF6185;
+}
+
+.home-transparent { 
+    background-color:rgba(0, 0, 0, 0);
+    border: 1px solid rgba(0,0,0,0);
+}
+
+.home-icons {
+    position: relative;
+    left: -7px;
+    width: 30px;
+    height: 30px;
+}
+
+.login-text {
+    position: relative;
+    left: 21px;
+}
+
+.home-prof-pic {
+    width: 80px;
+    height: 80px;
+}

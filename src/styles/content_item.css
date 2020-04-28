@@ -1,0 +1,52 @@
+.content-item {
+    width: 300px;
+    height: 390px;
+
+    background: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 15px rgba(82, 82, 82, 0.18);
+    border-radius: 5px;
+
+    margin: 20px;
+}
+
+.content-image {
+    position: relative;
+    width: 300px;
+    height: 180px;
+    left: -1px;
+    top: -1px;
+
+    border-radius: 5px;
+}
+
+.content-info-1 {
+    position: relative;
+    width: 270px;
+    height: 49px;
+    left: 15px;
+    top: 15px;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+}
+
+.content-info-2 {
+    position: relative;
+    width: 270px;
+    height: 68px;
+    left: 15px;
+    top: 15px;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-size: 12px;
+}
