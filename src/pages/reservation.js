@@ -29,7 +29,7 @@ const Reservation = () => {
         });
     };
 
-    const addHouse = async (event) => {
+    const addReservation = async (event) => {
         try {
             event.preventDefault();
             const token = localStorage.getItem('userToken');
@@ -81,7 +81,7 @@ const Reservation = () => {
                         <p style={{ color: 'red' }}>Failed to reserve consultation!</p>
                     }
 
-                    <Form onSubmit={addHouse} id="reserve-form">
+                    <Form onSubmit={addReservation} id="reserve-form">
                         <Form.Group controlId="reserveFullName">
                             <Form.Label className="reserve-bold-text">Full Name</Form.Label>
                             <Form.Control type="text" required

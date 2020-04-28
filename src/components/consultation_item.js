@@ -71,6 +71,7 @@ const ConsultationItem = ({item}) => {
                     }
                 </Container>
             }
+            <br/><br/>
         </>
     )
 }

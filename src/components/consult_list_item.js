@@ -4,6 +4,7 @@ import { Container, Row, Col, Modal } from 'react-bootstrap';
 import '../styles/consult_list_item.css';
 
 import Action from '../icons/Action.svg';
+import ConsultListAction from '../components/consult_list_action';
 
 const ConsultListItem = ({item}) => {
     const [isPopupOpen, setIsPopupOpen] = React.useState(false);
@@ -48,6 +49,7 @@ const ConsultListItem = ({item}) => {
             <Modal show={isPopupOpen} onHide={hidePopup} centered>
                 <Modal.Body className="action-area">
                     <br/>
+                    <ConsultListAction item={item} key={item.id}/>
                 </Modal.Body>
             </Modal>
         </>

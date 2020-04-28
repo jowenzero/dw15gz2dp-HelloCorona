@@ -1,0 +1,102 @@
+.consult-list-action-title {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+
+    color: #000000;
+}
+
+.consult-list-action-desc {
+    height: 105px;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
+
+    color: #6C6C6C;
+}
+
+.consult-list-action-circle-outline {
+    position: relative;
+    top: 7px;
+    left: 40px;
+}
+
+.consult-list-action-line {
+    position: relative;
+    width: 60px;
+    height: 0px;
+    top: 45px;
+    left: 18px;
+
+    border: 1px solid #D0D0D0;
+    transform: rotate(90deg);
+}
+
+.consult-list-action-circle-inline {
+    position: relative;
+    top: 88px;
+    left: 40px;
+}
+
+.consult-list-action-bold-text {
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 800;
+
+    color: #000000;
+}
+
+.consult-list-action-light-text {
+    position: relative;
+    top: -15px;
+
+    font-family: Montserrat;
+    font-size: 14px;
+
+    color: #959595;
+}
+
+.consult-list-action-light-text2 {
+    position: relative;
+    top: 13px;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 25px;
+
+    color: #B1B1B1;
+}
+
+.consult-list-action-line-2 {
+    position: relative;
+    left: -31px;
+    top: -5px;
+    width: 1050px;
+    height: 0px;
+
+    border: 1px solid rgba(183, 183, 183, 0.5);
+}
+
+.consult-list-action-title-2 {
+    font-family:Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+
+    color: #000000;
+}
+
+.consult-list-action-small-button {
+    width: 150px;
+    height: 50px;
+}
