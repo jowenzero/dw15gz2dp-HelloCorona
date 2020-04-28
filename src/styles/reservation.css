@@ -1,0 +1,44 @@
+.reserve-bg {
+    background: #F9F9F9;
+    min-height: 1050px;
+}
+
+.reserve-area {
+    position: relative;
+    max-width: 1204px;
+    height: 700px;
+    left: 0px;
+    top: 80px;
+}
+
+.reserve-title {
+    font-family: Montserrat;
+    font-size: 36px;
+
+    position: relative;
+    left: 150px;
+    top: 59px;
+
+    display: flex;
+    align-items: center;
+
+    color: #FF6185;
+}
+
+.reserve-bold-text {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 18px;
+
+    color: #000000;
+}
+
+.reserve-text {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+
+    color: #000000;
+}

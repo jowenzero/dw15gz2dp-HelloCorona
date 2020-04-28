@@ -18,7 +18,7 @@ const Jumbotron = () => {
             <img src={ConsultButton} className="consult-button" onClick={showButtonPress} alt="" ></img>
 
             { isButtonPress &&
-                <Redirect to="/404"/>
+                <Redirect to="/reservation"/>
             }
         </Container>
     );
