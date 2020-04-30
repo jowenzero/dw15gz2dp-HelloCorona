@@ -40,7 +40,7 @@
 
 .article-box {
     width: 1089px;
-    min-height: 1720px;
+    min-height: 10px;
 
     /* White */
 
@@ -60,7 +60,7 @@
 .article-desc-text {
     position: relative;
     width: 898px;
-    height: 132px;
+    min-height: 10px;
     left: 80px;
 
     font-family: Montserrat;
@@ -68,8 +68,10 @@
     font-weight: normal;
     font-size: 18px;
     line-height: 33px;
-    display: flex;
-    align-items: center;
 
     color: #000000;
+}
+
+.color-pink {
+    color: #FF6185;
 }

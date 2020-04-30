@@ -1,4 +1,4 @@
-import { GET_CONSULTATIONS, GET_CONSULTATION } from "../constants/action-types";
+import { GET_REPLY } from "../constants/action-types";
 
 const initialState = {
   data: [],
@@ -8,29 +8,26 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case `${GET_CONSULTATIONS}_PENDING`:
-    case `${GET_CONSULTATION}_PENDING`:
+    case `${GET_REPLY}_PENDING`:
       return {
         ...state,
-        loading: true,
+        replyLoading: true,
       };
-    case `${GET_CONSULTATIONS}_FULFILLED`:
-    case `${GET_CONSULTATION}_FULFILLED`:
+    case `${GET_REPLY}_FULFILLED`:
       if (action.payload) {
         return {
           ...state,
-          data: action.payload.data,
-          loading: false,
+          replyData: action.payload.data,
+          replyLoading: false,
         };
       }
       else {
         return {
           ...state,
-          loading: false,
+          replyLoading: false,
         };
       }
-    case `${GET_CONSULTATIONS}_REJECTED`:
-    case `${GET_CONSULTATION}_REJECTED`:
+    case `${GET_REPLY}_REJECTED`:
       return {
         ...state,
         loading: false,

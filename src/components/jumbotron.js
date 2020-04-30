@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
 import JumbotronPic from '../icons/Jumbotron.svg';
 import ConsultButton from '../icons/ConsultButton.svg';
@@ -13,9 +13,13 @@ const Jumbotron = () => {
     };
 
     return (
-        <Container fluid>
+        <Container fluid className="jumbotron-area">
             <img src={JumbotronPic} alt=""></img>
-            <img src={ConsultButton} className="consult-button" onClick={showButtonPress} alt="" ></img>
+            <Row>
+                <Col>
+                <img src={ConsultButton} className="consult-button" onClick={showButtonPress} alt="" ></img>
+                </Col>
+            </Row>
 
             { isButtonPress &&
                 <Redirect to="/reservation"/>

@@ -13,6 +13,7 @@ class Home extends Component {
                 { localStorage.getItem('userListAs') === 'Patient' &&
                     <>
                         <Jumbotron/>
+                        <br/><br/><br/>
                         <Content/>
                     </>
                 }

@@ -9,9 +9,14 @@ import CircleOutline from '../icons/CircleOutline.svg';
 
 const TransactionAction = ({item}) => { 
     const [response, setResponse] = React.useState(null);
+    const [status, setStatus] = React.useState(null);
 
     const handleResponseChange = (event) => {
         setResponse(event.target.value);
+    };
+
+    const handleStatusChange = (value) => {
+        setStatus(value);
     };
 
     function formatDate(string){
@@ -19,7 +24,7 @@ const TransactionAction = ({item}) => {
         return new Date(string).toLocaleDateString([],options);
     }
 
-    const patchConsult = async (status) => {
+    const patchConsult = async () => {
         try {
             const token = localStorage.getItem('userToken');
             setAuthToken(token);
@@ -100,26 +105,28 @@ const TransactionAction = ({item}) => {
                     <Col xs={1}><p className="consult-list-action-light-text2">{item.weight}</p></Col>
                 </Row>
                 <br/>
-                <div className="consult-list-action-line-2"/>
-                <br/>
-
-                <Form>
-                    <Form.Group controlId="consultResponse">
-                        <Form.Label className="consult-list-action-title-2">Give Response</Form.Label>
-                        <Form.Control as="textarea" rows="5" required value={response} onChange={handleResponseChange}/>
-                    </Form.Group>
-                </Form>
 
                 { item.status === "Waiting Approve Live Consultation" &&
-                    <Row>
-                        <Col xs={8}/>
-                        <Col xs={2}>
-                            <Button variant="danger" size="lg" className="consult-list-action-small-button" onClick={() => patchConsult("Cancel")}>Cancel</Button>
-                        </Col>
-                        <Col xs={2}>
-                            <Button variant="success" size="lg" className="consult-list-action-small-button" onClick={() => patchConsult("Waiting Live Consultation")}>Approve</Button>
-                        </Col>
-                    </Row>
+                    <>
+                        <div className="consult-list-action-line-2"/>
+                        <br/>
+
+                        <Form onSubmit={patchConsult}>
+                            <Form.Group controlId="consultResponse">
+                                <Form.Label className="consult-list-action-title-2">Give Response</Form.Label>
+                                <Form.Control as="textarea" rows="5" required value={response} onChange={handleResponseChange}/>
+                            </Form.Group>
+                                <Row>
+                                    <Col xs={8}/>
+                                    <Col xs={2}>
+                                        <Button variant="danger" size="lg" className="consult-list-action-small-button" type="submit" onClick={() => handleStatusChange("Cancel")}>Cancel</Button>
+                                    </Col>
+                                    <Col xs={2}>
+                                        <Button variant="success" size="lg" className="consult-list-action-small-button" type="submit" onClick={() => handleStatusChange("Waiting Live Consultation")}>Approve</Button>
+                                    </Col>
+                                </Row>
+                        </Form>
+                    </>
                 }
 
             </Container>

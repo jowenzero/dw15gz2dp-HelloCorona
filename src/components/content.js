@@ -32,7 +32,13 @@ const Content = () => {
 
     return (
         <Container fluid className="content-bg">
-            <h3 className="title">Artikel Hari Ini</h3>
+            <h3 className="title">&nbsp;Artikel Hari Ini</h3>
+            { data.length <= 0 &&
+                <>
+                    <br/>
+                    <h3 className="title">- N&nbsp;O&nbsp;&nbsp;&nbsp;D&nbsp;A&nbsp;T&nbsp;A -</h3>
+                </>
+            }
             <div className="flex-container">
                 { (!loading && !error) && data }
             </div>

@@ -31,6 +31,12 @@ const Consultation = () => {
             <Login/>
             <div>
                 <h3 className="consult-title">Consultation</h3>
+                { data.length <= 0 &&
+                    <>
+                        <br/>
+                        <h3 className="consult-title">- N&nbsp;O&nbsp;&nbsp;&nbsp;D&nbsp;A&nbsp;T&nbsp;A -</h3>
+                    </>
+                }
                 <br/><br/><br/>
                 { (!loading && !error)  && data }
             </div>

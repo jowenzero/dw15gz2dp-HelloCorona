@@ -1,21 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { useDispatch, useSelector } from "react-redux";
-import { getReply } from "../_actions/consultation";
+import { API, setAuthToken } from "../config/api";
 
 import '../styles/consultation.css';
 
-
 const ConsultationItem = ({item}) => {
-    const replies = useSelector(state => state.consultation.replyData);
-    const loading = useSelector(state => state.consultation.replyLoading);
-    const error = useSelector(state => state.consultation.error);
-    const dispatch = useDispatch();
+    const [data, setData] = useState(null);
+    const [length, setLength] = React.useState(0);
 
-    const [isUserGet, setIsUserGet] = React.useState(false);
-
-    const userGet = () => {
-        setIsUserGet(true);
+    const handleLengthChange = (value) => {
+        setLength(value);
     };
 
     function formatDate(string){
@@ -23,14 +17,34 @@ const ConsultationItem = ({item}) => {
         return new Date(string).toLocaleDateString([],options);
     }
 
-    if (loading && !isUserGet) {
-        dispatch(getReply(item.id));
-        userGet();
-    }
+    const fetchData = async () => {
+        try {
+            const token = localStorage.getItem('userToken');
+            setAuthToken(token);
+            const replies = await API.get(`/user/reply/${item.id}`);
+            const { data } = replies.data;
+            setData(data);
+            console.log(data);
+            handleLengthChange(data.length);
+        } catch (error) {
+            if (error.code === "ECONNABORTED" || !data) {
+                console.log("Network Error!");
+            } else {
+                const { data, status } = error.response;
+                console.log(data.message, status);
+            }
+            handleLengthChange(0);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
     
     return (
         <>
-            { (!loading && !error) && replies &&
+            { item &&
                 <Container fluid className="consult-area">
                     <Row>
                         <Col xs={2}>
@@ -40,7 +54,7 @@ const ConsultationItem = ({item}) => {
                             <br/>
                             <h3 className="consult-bold-text text-pos-1">{item.subject}</h3>
                             <p className="consult-light-text text-pos-2">{formatDate(item.createdAt)}</p>
-                            <p className="consult-light-text text-pos-3">Keluhan: {item.description}</p>
+                            <p className="consult-light-text text-pos-3"><b>Complaint:</b> {item.description}</p>
                         </Col>
                         <Col xs={2}>
                             <br/>
@@ -48,24 +62,32 @@ const ConsultationItem = ({item}) => {
                         </Col>
                     </Row>
                     <div className="consult-line"/>
-                    { !replies &&
+                    { length <= 0 &&
                         <Row>
                             <Col xs={4}/>   
                             <Col xs={8}>
                                 <br/><br/>
                                 <h3 className="consult-wait-text">Waiting For Reply</h3>
+                                <br/><br/>
                             </Col>
                         </Row>
                     }
-                    { replies &&
+                    { length > 0 &&
                         <Row>
                             <Col xs={1}/>   
                             <Col xs={1}>
                                 <img src={ process.env.PUBLIC_URL + `../images/ProfPicDoctor.png` } className="consult-prof-pic" alt=""></img>
                             </Col>
                             <Col xs={8}>
+                                <br/>
+                                { item.status === "Waiting Live Consultation" &&
+                                    <p className="consult-light-text text-pos-doc-1 color-green"><b>{item.status}</b></p>
+                                }
+                                { item.status === "Cancel" &&
+                                    <p className="consult-light-text text-pos-doc-1 color-red"><b>{item.status}</b></p>
+                                }
+                                <p className="consult-light-text text-pos-doc-2">{data[0].response}</p>
                                 <br/><br/>
-                                <p className="consult-light-text text-pos-doc">{replies[0].response}</p>
                             </Col>
                         </Row>
                     }

@@ -18,7 +18,7 @@ const Profile = () => {
     return (
         <div>
             <Login/>
-            { (!loading && !error) && 
+            { (!loading && !error && data) && 
                 <div className="profile-bg">
                     <br/><br/>
                     <Container fluid className="profile-area">

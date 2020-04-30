@@ -22,11 +22,11 @@ const Article = (props) => {
         setIsUserGet(true);
     };
 
-
     const initFetch = useCallback(() => {
         const { match } = props;
         let {id} = match.params;
         dispatch(getDetailArticle(id));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [dispatch]);
     
     useEffect(() => {
@@ -38,7 +38,7 @@ const Article = (props) => {
         return new Date(string).toLocaleDateString([],options);
     }
 
-    if (!loading && !error && articles && !isUserGet)
+    if (!loading && !error && !isUserGet && articles.userId)
     {
         dispatch(getUsers(articles.userId));
         userGet();
@@ -53,21 +53,16 @@ const Article = (props) => {
             }
 
 
-            { (!loading && !error && articles && isUserGet) &&
+            { (!loading && !error && articles && users.fullName) &&
                 <div className="article-area">
                     <p className="article-name">{articles.title}</p>
                     <p className="article-light">{formatDate(articles.createdAt)}</p>
-                    <p className="article-light">Author: {users.fullName}</p>
+                    <p className="article-light">Author:&nbsp;<span className="color-pink">{users.fullName}</span></p>
                     <Container fluid className="article-box">
                         <img src={ process.env.PUBLIC_URL + "../images/ArticlePic.png" } alt="" className="article-pic"></img>
+                        <br/><br/><br/><br/><br/>
+                        <p className="article-desc-text">{articles.description}</p>
                         <br/><br/><br/><br/><br/><br/><br/>
-                        <p className="article-desc-text">{articles.description}</p>
-                        <br/><br/><br/><br/><br/>
-                        <p className="article-desc-text">{articles.description}</p>
-                        <br/><br/><br/><br/><br/>
-                        <p className="article-desc-text">{articles.description}</p>
-                        <br/><br/><br/><br/><br/>
-                        <p className="article-desc-text">{articles.description}</p>
                     </Container>
                     <br/><br/><br/><br/><br/>
                 </div>

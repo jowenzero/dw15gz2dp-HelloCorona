@@ -100,10 +100,15 @@
     top: -19px;
 }
 
-.text-pos-doc {
+.text-pos-doc-1 {
     position: relative;
     left: 80px;
-    top: -20px;
+}
+
+.text-pos-doc-2 {
+    position: relative;
+    left: 80px;
+    top: -10px;
 }
 
 .consult-wait-text {
@@ -117,4 +122,12 @@
     line-height: 29px;
 
     color: #6C6C6C;
+}
+
+.color-green {
+    color: #0ACF83;
+}
+
+.color-red {
+    color: #FF0742;
 }

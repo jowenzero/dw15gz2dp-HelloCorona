@@ -62,7 +62,7 @@
     position: relative;
     left: -310px;
     width: 1050px;
-    height: 650px;
+    min-height: 10px;
 
     background: #FFFFFF;
     border-radius: 5px;

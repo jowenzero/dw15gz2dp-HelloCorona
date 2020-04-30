@@ -1,3 +1,8 @@
+.jumbotron-area {
+    height: 400px;
+    background: #FF6185;
+}
+
 .consult-button {
     position: relative;
     top: -140px;
