@@ -39,8 +39,16 @@ const Article = (props) => {
         return new Date(string).toLocaleDateString([],options);
     }
 
+    let labels;
+
+    if (!loading && !error && articles.tags) {
+        labels = articles.tags.map((item, index) => (
+            <div key={index} className="article-tag-rect">{item}</div>
+        ))
+    }
+
     if (!loading && !error && !isUserGet && articles.userId)
-    {
+    {    
         dispatch(getUsers(articles.userId));
         userGet();
     }
@@ -62,12 +70,18 @@ const Article = (props) => {
                     <Container fluid className="article-box">
                         <img src={ process.env.PUBLIC_URL + "../images/ArticlePic.png" } alt="" className="article-pic"></img>
                         <br/><br/><br/><br/><br/>
+                        { articles.tags && 
+                            <Container fluid className="article-tag-pos">
+                                {labels}
+                            </Container>
+                        }
+                        <br/>
                         <p className="article-desc-text">
                             <Markdown options={{ forceBlock: true }}>
                                 {articles.description}
                             </Markdown>
                         </p>
-                        <br/><br/><br/><br/><br/><br/><br/>
+                        <br/><br/><br/>
                     </Container>
                     <br/><br/><br/><br/><br/>
                 </div>

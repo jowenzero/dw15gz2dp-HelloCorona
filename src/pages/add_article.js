@@ -46,6 +46,7 @@ const AddArticle = () => {
 
             await API.post("/articles", {
                 title: data.title,
+                tags: data.tags,
                 description: text.text,
                 userId: auth.id,
                 createdAt: currDate
@@ -82,11 +83,21 @@ const AddArticle = () => {
                     }
 
                     <Form onSubmit={addArticle} id="article-form">
-                        <Form.Group controlId="articleFullName">
+                        <Form.Group controlId="articleTitle">
                             <Form.Label className="reserve-bold-text">Title</Form.Label>
                             <Form.Control type="text" required
                                 name="title"
                                 value={article.title && article.title}
+                                onChange={handleChange}
+                            />
+                        </Form.Group>
+
+                        <Form.Group controlId="articleTags">
+                            <Form.Label className="reserve-bold-text">Tags</Form.Label>
+                            <Form.Control type="text" required
+                                name="tags"
+                                placeholder="Ex. Coronavirus,Olahraga,etc"
+                                value={article.tags && article.tags}
                                 onChange={handleChange}
                             />
                         </Form.Group>
