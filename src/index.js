@@ -5,6 +5,7 @@ import store from "./_store";
 
 import './styles/index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-markdown-editor-lite/lib/index.css';
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';

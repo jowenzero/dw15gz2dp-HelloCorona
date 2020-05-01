@@ -1,6 +1,8 @@
 import React from 'react';
 import { Container, Row, Col, Button, Form } from 'react-bootstrap';
 import { API, setAuthToken } from "../config/api";
+import MarkdownIt from 'markdown-it'
+import MdEditor from 'react-markdown-editor-lite'
 
 import '../styles/consult_list_action.css';
 
@@ -10,10 +12,6 @@ import CircleOutline from '../icons/CircleOutline.svg';
 const TransactionAction = ({item}) => { 
     const [response, setResponse] = React.useState(null);
     const [status, setStatus] = React.useState(null);
-
-    const handleResponseChange = (event) => {
-        setResponse(event.target.value);
-    };
 
     const handleStatusChange = (value) => {
         setStatus(value);
@@ -32,7 +30,7 @@ const TransactionAction = ({item}) => {
                 status: status
             });
             await API.post("/consultation/" + item.id + "/reply", {
-                response: response,
+                response: response.text,
                 consultationId: item.id
             });
             window.location.reload(true);
@@ -45,6 +43,8 @@ const TransactionAction = ({item}) => {
             }
         }
     };
+
+    const mdParser = new MarkdownIt(/* Markdown-it options */);
 
     return (
         <>
@@ -114,17 +114,24 @@ const TransactionAction = ({item}) => {
                         <Form onSubmit={patchConsult}>
                             <Form.Group controlId="consultResponse">
                                 <Form.Label className="consult-list-action-title-2">Give Response</Form.Label>
-                                <Form.Control as="textarea" rows="5" required value={response} onChange={handleResponseChange}/>
+                                <MdEditor
+                                    name="response"
+                                    style={{ height: '200px', width: '100%' }}
+                                    value=""
+                                    renderHTML={(text) => mdParser.render(text)}
+                                    onChange={(text) => setResponse(text)}
+                                />
                             </Form.Group>
-                                <Row>
-                                    <Col xs={8}/>
-                                    <Col xs={2}>
-                                        <Button variant="danger" size="lg" className="consult-list-action-small-button" type="submit" onClick={() => handleStatusChange("Cancel")}>Cancel</Button>
-                                    </Col>
-                                    <Col xs={2}>
-                                        <Button variant="success" size="lg" className="consult-list-action-small-button" type="submit" onClick={() => handleStatusChange("Waiting Live Consultation")}>Approve</Button>
-                                    </Col>
-                                </Row>
+
+                            <Row>
+                                <Col xs={8}/>
+                                <Col xs={2}>
+                                    <Button variant="danger" size="lg" className="consult-list-action-small-button" type="submit" onClick={() => handleStatusChange("Cancel")}>Cancel</Button>
+                                </Col>
+                                <Col xs={2}>
+                                    <Button variant="success" size="lg" className="consult-list-action-small-button" type="submit" onClick={() => handleStatusChange("Waiting Live Consultation")}>Approve</Button>
+                                </Col>
+                            </Row>
                         </Form>
                     </>
                 }

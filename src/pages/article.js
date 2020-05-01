@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { getDetailArticle } from "../_actions/article";
 import { getUsers } from "../_actions/user";
+import Markdown from 'markdown-to-jsx';
 
 import '../styles/article.css';
 
@@ -61,7 +62,11 @@ const Article = (props) => {
                     <Container fluid className="article-box">
                         <img src={ process.env.PUBLIC_URL + "../images/ArticlePic.png" } alt="" className="article-pic"></img>
                         <br/><br/><br/><br/><br/>
-                        <p className="article-desc-text">{articles.description}</p>
+                        <p className="article-desc-text">
+                            <Markdown options={{ forceBlock: true }}>
+                                {articles.description}
+                            </Markdown>
+                        </p>
                         <br/><br/><br/><br/><br/><br/><br/>
                     </Container>
                     <br/><br/><br/><br/><br/>

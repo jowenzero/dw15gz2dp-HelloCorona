@@ -2,6 +2,8 @@ import React from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
 import { API, setAuthToken } from "../config/api";
 import { Redirect } from 'react-router-dom';
+import MarkdownIt from 'markdown-it'
+import MdEditor from 'react-markdown-editor-lite'
 
 import '../styles/reservation.css';
 
@@ -11,6 +13,7 @@ const AddArticle = () => {
     const [article, setArticle] = React.useState({});
     const [articleFail, setArticleFail] = React.useState(false);
     const [articleOK, setArticleOK] = React.useState(false);
+    const [text, setText] = React.useState(null);
 
     const showArticleFail = () => {
         setArticleFail(true);
@@ -43,7 +46,7 @@ const AddArticle = () => {
 
             await API.post("/articles", {
                 title: data.title,
-                description: data.description,
+                description: text.text,
                 userId: auth.id,
                 createdAt: currDate
             });
@@ -60,6 +63,8 @@ const AddArticle = () => {
             showArticleFail();
         }
     };
+
+    const mdParser = new MarkdownIt(/* Markdown-it options */);
 
     return (
         <div>
@@ -88,10 +93,12 @@ const AddArticle = () => {
 
                         <Form.Group controlId="articleDescription">
                             <Form.Label className="reserve-bold-text">Description</Form.Label>
-                            <Form.Control as="textarea" rows="10" required
+                            <MdEditor
                                 name="description"
-                                value={article.description && article.description}
-                                onChange={handleChange}
+                                style={{ height: '500px', width: '100%' }}
+                                value=""
+                                renderHTML={(text) => mdParser.render(text)}
+                                onChange={(text) => setText(text)}
                             />
                         </Form.Group>
                         

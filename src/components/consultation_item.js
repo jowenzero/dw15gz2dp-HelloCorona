@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { API, setAuthToken } from "../config/api";
+import Markdown from 'markdown-to-jsx';
 
 import '../styles/consultation.css';
 
@@ -86,8 +87,11 @@ const ConsultationItem = ({item}) => {
                                 { item.status === "Cancel" &&
                                     <p className="consult-light-text text-pos-doc-1 color-red"><b>{item.status}</b></p>
                                 }
-                                <p className="consult-light-text text-pos-doc-2">{data[0].response}</p>
-                                <br/><br/>
+                                <p className="consult-light-text text-pos-doc-2">
+                                    <Markdown options={{ forceBlock: true }}>
+                                        {data[0].response}
+                                    </Markdown>
+                                </p>
                             </Col>
                         </Row>
                     }
