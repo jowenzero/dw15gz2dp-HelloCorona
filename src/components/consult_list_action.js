@@ -22,7 +22,7 @@ const TransactionAction = ({item}) => {
         return new Date(string).toLocaleDateString([],options);
     }
 
-    const patchConsult = async () => {
+    const patchConsult = async (event) => {
         try {
             event.preventDefault();
             const token = localStorage.getItem('userToken');
