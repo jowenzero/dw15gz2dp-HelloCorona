@@ -42,9 +42,14 @@
 .content-info-2 {
     position: relative;
     width: 270px;
-    height: 68px;
+    height: 50px;
     left: 15px;
     top: 15px;
+
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 
     font-family: Montserrat;
     font-style: normal;
