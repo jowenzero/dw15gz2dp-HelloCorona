@@ -114,7 +114,7 @@ const Header = () => {
             if (listNum === 1)
                 localStorage.setItem('userListAs', 'Patient');
             else if (listNum === 2)
-                localStorage.setItem('userListAs', 'Owner');
+                localStorage.setItem('userListAs', 'Doctor');
 
             localStorage.setItem('userToken', newData.token);
             localStorage.setItem('userLogin', 'true');
