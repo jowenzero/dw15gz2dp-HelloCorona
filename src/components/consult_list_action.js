@@ -26,14 +26,13 @@ const TransactionAction = ({item}) => {
         try {
             const token = localStorage.getItem('userToken');
             setAuthToken(token);
-            await API.patch("/consultation/" + item.id, {
-                status: status
-            });
-            await API.post("/consultation/" + item.id + "/reply", {
+            API.post("/consultation/" + item.id + "/reply", {
                 response: response.text,
                 consultationId: item.id
             });
-            window.location.reload(true);
+            await API.patch("/consultation/" + item.id, {
+                status: status
+            });
         } catch (error) {
             if (error.code === "ECONNABORTED") {
                 console.log("Network Error!");
