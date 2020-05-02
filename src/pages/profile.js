@@ -4,6 +4,7 @@ import { AiOutlineUser, AiOutlineMail, AiOutlineUnorderedList, AiOutlinePhone } 
 import { GoLocation } from "react-icons/go";
 import { IoIosTransgender } from "react-icons/io";
 import { useSelector } from "react-redux";
+import { API, setAuthToken } from "../config/api";
 
 import '../styles/profile.css';
 
@@ -14,6 +15,34 @@ const Profile = () => {
     const loading = useSelector(state => state.user.loading);
     const error = useSelector(state => state.user.error);
     const listAs = localStorage.getItem('userListAs');
+
+    const [file, setFile] = React.useState(null);
+
+    const onChange = (event) => {
+        setFile(event.target.files[0]);
+    }
+
+    const onFileUpload = async (event) => {
+        try {
+            event.preventDefault();
+            const token = localStorage.getItem('userToken');
+            setAuthToken(token);
+            const formData = new FormData();
+            formData.append('file', file);
+
+            await API.post("/user/upload", formData, {
+
+            })
+            window.location.reload(true);
+        } catch (error) {
+            if (error.code === "ECONNABORTED") {
+                console.log("Network Error!");
+            } else {
+                const { data, status } = error.response;
+                console.log(data.message, status);
+            }
+        }
+    };
 
     return (
         <div>
@@ -53,8 +82,9 @@ const Profile = () => {
                                 <img src={ process.env.PUBLIC_URL + `../images/Profile${listAs}.png` } alt=""></img>
                                 <br/><br/>
                                 <DropdownButton variant="danger" id="dropdown-basic-button" title="Change Photo Profile">
-                                    <form action="/profile" method="post" enctype="multipart/form-data">
-                                        <input type="file" name="avatar"/>
+                                    <form onSubmit={onFileUpload}>
+                                        <input type="file" name="file" onChange={onChange}/>
+                                        <button type="submit">Upload</button>
                                     </form>
                                 </DropdownButton>
                             </Col>
