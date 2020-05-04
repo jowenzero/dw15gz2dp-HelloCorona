@@ -15,9 +15,7 @@ const Content = () => {
     const dispatch = useDispatch();
 
     const initFetch = useCallback(() => {
-        let currDate = new Date();
-        currDate.setHours(7,0,0,0);
-        dispatch(getArticles(currDate));
+        dispatch(getArticles());
     }, [dispatch]);
     
     useEffect(() => {

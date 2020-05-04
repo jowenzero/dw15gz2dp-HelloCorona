@@ -40,7 +40,6 @@ const AddArticle = () => {
             const user = await API.get("/user");
             const auth = user.data.data;
             let currDate = new Date();
-            currDate.setHours(7,0,0,0);
 
             const { data } = article;
 
